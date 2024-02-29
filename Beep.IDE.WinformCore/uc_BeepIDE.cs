@@ -1,10 +1,6 @@
 ﻿using Beep.IDE.Extensions;
 using BeepEnterprize.Vis.Module;
-using System;
 using System.Data;
-using System.Linq;
-using System.Threading;
-using System.Windows.Forms;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.DataBase;
@@ -15,7 +11,7 @@ using TheTechIdea.Util;
 
 namespace Beep.IDE
 {
-    [AddinAttribute(Caption = "Beep IDE", Name = "BeepIDE", misc = "App", ObjectType = "Beep", addinType = AddinType.Control, displayType = DisplayType.InControl)]
+    [AddinAttribute(Caption = "Beep IDE", Name = "BeepIDE", misc = "App", ObjectType = "Beep.Admin", addinType = AddinType.Control, displayType = DisplayType.InControl)]
     public partial class uc_BeepIDE : UserControl, IDM_Addin
     {
         public uc_BeepIDE()

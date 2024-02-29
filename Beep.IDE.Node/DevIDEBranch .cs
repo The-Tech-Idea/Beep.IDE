@@ -124,7 +124,9 @@ namespace Beep.IDE.Nodes
             try
             {
                Console.WriteLine("Trying Open");
-               Visutil.ShowPage("uc_BeepIDE", (PassedArgs)DMEEditor.Passedarguments, DisplayType.InControl,Singleton:true);
+                PassedArgs args = new PassedArgs();
+               
+                Visutil.ShowPage("uc_BeepIDE", (PassedArgs)DMEEditor.Passedarguments, DisplayType.InControl,Singleton:true);
 
                 //   DMEEditor.AddLogMessage("Success", "Added Database Connection", DateTime.Now, 0,null, Errors.Failed);
             }
