@@ -39,9 +39,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Update="uc_BeepIDE.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Update="uc_BeepIDE.cs" />
   </ItemGroup>
 
   <ItemGroup>
