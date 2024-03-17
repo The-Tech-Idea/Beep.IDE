@@ -20,7 +20,24 @@ namespace Beep.IDE
             this.beepTabControl1.NextButtonClick += BeepTabControl1_NextButtonClick;
             this.beepTabControl1.PrevButtonClick += BeepTabControl1_PrevButtonClick;
             this.beepTabControl1.CloseButtonClick += BeepTabControl1_CloseButtonClick;
+            this.beepTabControl1.MouseClick += BeepTabControl1_MouseClick;
             
+        }
+
+        private void BeepTabControl1_MouseClick(object? sender, MouseEventArgs e)
+        {
+            // Convert the click point to beepTabControl's coordinate space
+            Point clickPoint = beepTabControl1.PointToClient(new Point(e.X, e.Y));
+
+            // Assuming beepTabControl exposes NextButtonRectangle and PrevButtonRectangle
+            if (beepTabControl1.nextButton.Contains(clickPoint))
+            {
+                beepTabControl1.OnNextButtonClick();
+            }
+            else if (beepTabControl1.prevButton.Contains(clickPoint))
+            {
+                beepTabControl1.OnPrevButtonClick();
+            }
         }
 
         private void BeepTabControl1_CloseButtonClick(object sender, TabsDataEventarg e)
