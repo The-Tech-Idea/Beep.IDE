@@ -1,5 +1,5 @@
 ﻿using Beep.IDE.Extensions;
-using BeepEnterprize.Vis.Module;
+using Beep.Vis.Module;
 using System.Data;
 using TheTechIdea;
 using TheTechIdea.Beep;
@@ -20,7 +20,7 @@ namespace Beep.IDE
             this.beepTabControl1.NextButtonClick += BeepTabControl1_NextButtonClick;
             this.beepTabControl1.PrevButtonClick += BeepTabControl1_PrevButtonClick;
             this.beepTabControl1.CloseButtonClick += BeepTabControl1_CloseButtonClick;
-            this.beepTabControl1.MouseClick += BeepTabControl1_MouseClick;
+            
             
         }
 

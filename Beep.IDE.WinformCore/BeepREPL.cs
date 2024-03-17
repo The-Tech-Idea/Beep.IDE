@@ -1,5 +1,5 @@
 ﻿using Beep.Compilers.Module;
-using BeepEnterprize.Vis.Module;
+using Beep.Vis.Module;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;

@@ -1,5 +1,5 @@
-﻿using BeepEnterprize.Vis.Module;
-using BeepEnterprize.Winform.Vis;
+﻿using Beep.Vis.Module;
+ 
 using DataManagementModels.DriversConfigurations;
 using System;
 using System.Collections.Generic;
@@ -344,7 +344,7 @@ namespace Beep.IDE.Extensions
            
             try
             {
-                if (Vismanager.Controlmanager.InputBoxYesNo("Beep AI",$"Would you Like to Copy File {filename} to Local Folders?")== BeepEnterprize.Vis.Module.DialogResult.OK)
+                if (Vismanager.Controlmanager.InputBoxYesNo("Beep AI",$"Would you Like to Copy File {filename} to Local Folders?")== Beep.Vis.Module.DialogResult.OK)
                 {
                     CopyFileToLocal(sourcPath, DMEEditor.ConfigEditor.Config.ProjectDataPath,filename);
                 }
