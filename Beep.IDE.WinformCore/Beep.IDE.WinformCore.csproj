@@ -22,8 +22,8 @@
   <ItemGroup>
     <PackageReference Include="Beep.Compilers.Module" Version="1.0.1" />
     <PackageReference Include="Scintilla.NET" Version="5.3.2.9" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.360" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.126" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.364" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.127" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.95" />
   </ItemGroup>
 
