@@ -11,8 +11,9 @@ using TheTechIdea.Util;
 
 namespace Beep.IDE.Nodes
 {
-    [AddinAttribute(Caption = "IDE",Name ="BeepIDE", misc = "DEV", FileType = "Beep", iconimage = "devide.png", menu = "DEV", ObjectType = "Beep.DEV.IDE")]
-    [AddinVisSchema(BranchType = EnumPointType.Function)]
+    
+    [AddinAttribute(Name = "DevIDEBranch", Caption = "IDE", misc = "Beep", FileType = "Beep", iconimage = "devide.png", menu = "DEV", ObjectType = "Beep.DEV.GEN")]
+
     public class DevIDEBranch : IBranch
     {
         public string GuidID { get; set; } = Guid.NewGuid().ToString();

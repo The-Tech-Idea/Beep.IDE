@@ -117,11 +117,17 @@ namespace Beep.IDE
             listofMethods = new ListofMethods();
             foreach (AssemblyClassDefinition definition in DMEEditor.ConfigEditor.AppComponents.Where(p => p.componentType == "ICompiler").ToList())
             {
-                // DMEEditor.assemblyHandler.CreateInstanceFromString(definition.className);
-
-                ICompiler compiler = (ICompiler)Activator.CreateInstance(definition.type, new object[] { DMEEditor, Progress, CancellationToken, Passedarguments });
-                CreateMethodsforCompiler(definition, compiler);
-                Compilers.Add(compiler);
+                try
+                {
+                    ICompiler compiler = (ICompiler)Activator.CreateInstance(definition.type, new object[] { DMEEditor, Progress, CancellationToken, Passedarguments });
+                    CreateMethodsforCompiler(definition, compiler);
+                    Compilers.Add(compiler);
+                }
+                catch (Exception ex)
+                {
+                    DMEEditor.AddLogMessage("Beep", $"Error in Loading Compiler {definition.className} : {ex.Message} ", DateTime.Now, 0, null, Errors.Failed);
+                }
+                
             }
           //  SetupCompilers();
 
