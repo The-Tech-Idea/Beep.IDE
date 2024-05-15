@@ -12,7 +12,7 @@ using TheTechIdea.Util;
 namespace Beep.IDE.Nodes
 {
     
-    [AddinAttribute(Name = "DevIDEBranch", Caption = "IDE", misc = "Beep", FileType = "Beep", iconimage = "devide.png", menu = "DEV", ObjectType = "Beep.DEV.GEN")]
+    [AddinAttribute(Name = "DevIDEBranch", Caption = "IDE", misc = "Beep", FileType = "Beep", iconimage = "devide.png", menu = "DEV", ObjectType = "Beep.DEV.GEN", ClassType = "LJ")]
 
     public class DevIDEBranch : IBranch
     {
