@@ -380,23 +380,7 @@ namespace Beep.IDE
                         {
                             TabsData p = Files[tabindx];
                             ICompiler compiler = Compilers[p.CompilerIndex];
-                            if (compiler != null)
-                            {
-                                if (compiler.IsCompilerReady)
-                                {
-                                    PassedArgs args = new PassedArgs();
-                                    args.ParameterString1 = $"Running Code File {p.filename}";
-                                    Visutil.ShowWaitForm(args);
-                                    compiler.Run(p.EditorControl.Text, null, null, Progress, CancellationToken);
-                                    args.ParameterString1 = $"Finished Run for {p.filename}";
-                                    Visutil.PasstoWaitForm(args);
-                                    Visutil.CloseWaitForm();
-                                }
-                                else
-                                    MessageBox.Show($"Please Initialize Compiler {compiler.Name}", "Beep IDE");
-
-                            }
-
+                            RunCode(p.CompilerIndex, p.EditorControl.Text);
                         }
                     }
                 }
@@ -408,6 +392,69 @@ namespace Beep.IDE
                 retval = false;
                 DMEEditor.AddLogMessage("IDE", $"Run Error {ex.Message}", DateTime.Now, 0, null, Errors.Failed);
             }
+            Visutil.CloseWaitForm();
+            return retval;
+        }
+        public Tuple<int,string> GetCodeFromTab(int tabindex)
+        {
+            string code = "";
+            int compilerindex = -1;
+            if (Tabs.TabPages.Count > 0)
+            {
+                    if (Tabs.TabPages[tabindex] != null)
+                    {
+                        TabsData p = Files[tabindex];
+                        ICompiler compiler = Compilers[p.CompilerIndex];
+                    compilerindex=p.CompilerIndex;
+                    code = p.EditorControl.Text;
+                    }
+            }
+            return new Tuple<int, string>(compilerindex, code);
+
+        }
+        public bool RunCode(int compilerindex,string code)
+        {
+            bool retval = false;
+            try
+            {
+                            ICompiler compiler = Compilers[compilerindex];
+                            if (compiler != null)
+                            {
+                                if (compiler.IsCompilerReady)
+                                {
+                                    //PassedArgs args = new PassedArgs();
+                                    //args.ParameterString1 = $"Running Code File {p.filename}";
+                                   // Visutil.ShowWaitForm(args);
+                                    List<CompileResults> compileResults=compiler.Run(code, null, null, Progress, CancellationToken);
+                                    if (compileResults != null)
+                                    {
+                                        if (compileResults.Count > 0)
+                                        {
+                                            foreach (var item in compileResults)
+                                            {
+                                                DMEEditor.AddLogMessage("Beep", $"Compile error in {item.ErrorNumber} - {item.LineNumer}", DateTime.Now, -1, null, Errors.Failed);
+                                            }
+                                        }
+                                    }
+                                 //   args.ParameterString1 = $"Finished Run for {p.filename}";
+                                  //  Visutil.PasstoWaitForm(args);
+                                 //   Visutil.CloseWaitForm();
+                                }
+                                else
+                                    MessageBox.Show($"Please Initialize Compiler {compiler.Name}", "Beep IDE");
+
+                            }
+
+
+            }
+            catch (Exception ex)
+            {
+            
+                Visutil.CloseWaitForm();
+                retval = false;
+                DMEEditor.AddLogMessage("IDE", $"Run Error {ex.Message}", DateTime.Now, 0, null, Errors.Failed);
+            }
+            Visutil.CloseWaitForm();
             return retval;
         }
         public bool RunCode()

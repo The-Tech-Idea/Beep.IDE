@@ -20,8 +20,8 @@ namespace Beep.IDE
             this.beepTabControl1.NextButtonClick += BeepTabControl1_NextButtonClick;
             this.beepTabControl1.PrevButtonClick += BeepTabControl1_PrevButtonClick;
             this.beepTabControl1.CloseButtonClick += BeepTabControl1_CloseButtonClick;
-            
-            
+
+            progressBar1.Style = ProgressBarStyle.Blocks;
         }
 
         private void BeepTabControl1_MouseClick(object? sender, MouseEventArgs e)
@@ -125,8 +125,9 @@ namespace Beep.IDE
             token = tokenSource.Token;
             progress = new Progress<PassedArgs>(percent =>
             {
-
-                if (!String.IsNullOrEmpty(percent.Messege))
+                progressBar1.Style = ProgressBarStyle.Marquee;
+                progressBar1.MarqueeAnimationSpeed = 30; // Adjust as needed
+                if (!String.IsNullOrEmpty(percent.Messege) && percent.EventType != "CODEFINISH")
                 {
 
                     //Add the text to the collected output.
@@ -140,11 +141,15 @@ namespace Beep.IDE
                     }));
 
                 }
-                if (!string.IsNullOrEmpty(percent.ParameterString1))
+
+                if (!string.IsNullOrEmpty(percent.ParameterString1) && percent.EventType != "CODEFINISH")
                 {
                     DMEEditor.AddLogMessage(percent.Messege);
                 }
-
+                if (percent.EventType == "CODEFINISH")
+                {
+                    progressBar1.Style = ProgressBarStyle.Blocks;
+                }
 
             });
             extensionsHelpers = new FunctionandExtensionsHelpers(DMEEditor, Visutil, (ITree)Visutil.Tree);
@@ -250,8 +255,31 @@ namespace Beep.IDE
             {
                 return;
             }
+            progressBar1.Style = ProgressBarStyle.Marquee;
+            progressBar1.MarqueeAnimationSpeed = 30; // Adjust as needed
+            if(beepTabControl1.SelectedIndex<0 && beepTabControl1.TabCount>0)
+            {
+                beepTabControl1.SelectedIndex = 0;
+            }
+            var retval = iDEManager.GetCodeFromTab(beepTabControl1.SelectedIndex);
+            if (string.IsNullOrEmpty(retval.Item2))
+            {
+                progressBar1.Style = ProgressBarStyle.Blocks;
+                return;
+            }
+            if (retval.Item1 < 0)
+            {
+                progressBar1.Style = ProgressBarStyle.Blocks;
+                return;
+            }
+            iDEManager.RunCode(retval.Item1, retval.Item2);
             
-            iDEManager.RunCode(beepTabControl1.SelectedIndex);
+            progressBar1.Style = ProgressBarStyle.Blocks;
+           
+            //          ret.Wait();
+
+
         }
+       
     }
 }

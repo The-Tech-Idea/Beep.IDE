@@ -31,464 +31,443 @@ namespace Beep.IDE
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.SaveToProjecttoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.configurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.NewFiletoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.OpenFiletoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.SaveFiletoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.SaveAstoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.SaveAsProjecttoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.ConfigurationtoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.AligntoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.RuntoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.PausetoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.StoptoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.beepTabControl1 = new Beep.IDE.Winform.Controls.BeepTabControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.CodeStatusStrip = new System.Windows.Forms.StatusStrip();
-            this.LinetoolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.CurrentLineValue = new System.Windows.Forms.ToolStripStatusLabel();
-            this.ColumnPositionLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.TotalLinestoolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.TotalLinesValue = new System.Windows.Forms.ToolStripStatusLabel();
-            this.OutputtextBox = new System.Windows.Forms.TextBox();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.ClearOutputtoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.OutputstatusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
-            this.OutputStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.menuStrip1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
-            this.beepTabControl1.SuspendLayout();
-            this.CodeStatusStrip.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
-            this.OutputstatusStrip.SuspendLayout();
-            this.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_BeepIDE));
+            menuStrip1 = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            newFileToolStripMenuItem = new ToolStripMenuItem();
+            loadFileToolStripMenuItem = new ToolStripMenuItem();
+            saveToolStripMenuItem = new ToolStripMenuItem();
+            saveAsToolStripMenuItem = new ToolStripMenuItem();
+            SaveToProjecttoolStripMenuItem = new ToolStripMenuItem();
+            configurationToolStripMenuItem = new ToolStripMenuItem();
+            exitToolStripMenuItem = new ToolStripMenuItem();
+            toolStrip1 = new ToolStrip();
+            NewFiletoolStripButton = new ToolStripButton();
+            OpenFiletoolStripButton = new ToolStripButton();
+            SaveFiletoolStripButton = new ToolStripButton();
+            SaveAstoolStripButton = new ToolStripButton();
+            SaveAsProjecttoolStripButton = new ToolStripButton();
+            ConfigurationtoolStripButton = new ToolStripButton();
+            toolStripSeparator1 = new ToolStripSeparator();
+            AligntoolStripButton = new ToolStripButton();
+            toolStripSeparator2 = new ToolStripSeparator();
+            RuntoolStripButton = new ToolStripButton();
+            PausetoolStripButton = new ToolStripButton();
+            StoptoolStripButton = new ToolStripButton();
+            splitContainer1 = new SplitContainer();
+            splitContainer2 = new SplitContainer();
+            beepTabControl1 = new BeepTabControl();
+            tabPage2 = new TabPage();
+            CodeStatusStrip = new StatusStrip();
+            LinetoolStripStatusLabel = new ToolStripStatusLabel();
+            CurrentLineValue = new ToolStripStatusLabel();
+            ColumnPositionLabel = new ToolStripStatusLabel();
+            TotalLinestoolStripStatusLabel = new ToolStripStatusLabel();
+            TotalLinesValue = new ToolStripStatusLabel();
+            progressBar1 = new ToolStripProgressBar();
+            OutputtextBox = new TextBox();
+            toolStrip2 = new ToolStrip();
+            ClearOutputtoolStripButton = new ToolStripButton();
+            OutputstatusStrip = new StatusStrip();
+            toolStripProgressBar1 = new ToolStripProgressBar();
+            OutputStatusLabel = new ToolStripStatusLabel();
+            menuStrip1.SuspendLayout();
+            toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
+            splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer2).BeginInit();
+            splitContainer2.Panel1.SuspendLayout();
+            splitContainer2.Panel2.SuspendLayout();
+            splitContainer2.SuspendLayout();
+            beepTabControl1.SuspendLayout();
+            CodeStatusStrip.SuspendLayout();
+            toolStrip2.SuspendLayout();
+            OutputstatusStrip.SuspendLayout();
+            SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(880, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1027, 24);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newFileToolStripMenuItem,
-            this.loadFileToolStripMenuItem,
-            this.saveToolStripMenuItem,
-            this.saveAsToolStripMenuItem,
-            this.SaveToProjecttoolStripMenuItem,
-            this.configurationToolStripMenuItem,
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Image = global::Beep.IDE.Properties.Resources.FolderClosed;
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newFileToolStripMenuItem, loadFileToolStripMenuItem, saveToolStripMenuItem, saveAsToolStripMenuItem, SaveToProjecttoolStripMenuItem, configurationToolStripMenuItem, exitToolStripMenuItem });
+            fileToolStripMenuItem.Image = Properties.Resources.FolderClosed;
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(53, 20);
+            fileToolStripMenuItem.Text = "File";
             // 
             // newFileToolStripMenuItem
             // 
-            this.newFileToolStripMenuItem.Image = global::Beep.IDE.Properties.Resources.NewDocument;
-            this.newFileToolStripMenuItem.Name = "newFileToolStripMenuItem";
-            this.newFileToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.newFileToolStripMenuItem.Text = "New";
+            newFileToolStripMenuItem.Image = Properties.Resources.NewDocument;
+            newFileToolStripMenuItem.Name = "newFileToolStripMenuItem";
+            newFileToolStripMenuItem.Size = new Size(153, 22);
+            newFileToolStripMenuItem.Text = "New";
             // 
             // loadFileToolStripMenuItem
             // 
-            this.loadFileToolStripMenuItem.Image = global::Beep.IDE.Properties.Resources.OpenFile;
-            this.loadFileToolStripMenuItem.Name = "loadFileToolStripMenuItem";
-            this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.loadFileToolStripMenuItem.Text = "Load";
+            loadFileToolStripMenuItem.Image = Properties.Resources.OpenFile;
+            loadFileToolStripMenuItem.Name = "loadFileToolStripMenuItem";
+            loadFileToolStripMenuItem.Size = new Size(153, 22);
+            loadFileToolStripMenuItem.Text = "Load";
             // 
             // saveToolStripMenuItem
             // 
-            this.saveToolStripMenuItem.Image = global::Beep.IDE.Properties.Resources.SaveAs;
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.saveToolStripMenuItem.Text = "Save";
+            saveToolStripMenuItem.Image = Properties.Resources.SaveAs;
+            saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            saveToolStripMenuItem.Size = new Size(153, 22);
+            saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
-            this.saveAsToolStripMenuItem.Image = global::Beep.IDE.Properties.Resources.SaveFileDialog;
-            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.saveAsToolStripMenuItem.Text = "Save As";
+            saveAsToolStripMenuItem.Image = Properties.Resources.SaveFileDialog;
+            saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            saveAsToolStripMenuItem.Size = new Size(153, 22);
+            saveAsToolStripMenuItem.Text = "Save As";
             // 
             // SaveToProjecttoolStripMenuItem
             // 
-            this.SaveToProjecttoolStripMenuItem.Image = global::Beep.IDE.Properties.Resources.SaveTable;
-            this.SaveToProjecttoolStripMenuItem.Name = "SaveToProjecttoolStripMenuItem";
-            this.SaveToProjecttoolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.SaveToProjecttoolStripMenuItem.Text = "Save To Project";
+            SaveToProjecttoolStripMenuItem.Image = Properties.Resources.SaveTable;
+            SaveToProjecttoolStripMenuItem.Name = "SaveToProjecttoolStripMenuItem";
+            SaveToProjecttoolStripMenuItem.Size = new Size(153, 22);
+            SaveToProjecttoolStripMenuItem.Text = "Save To Project";
             // 
             // configurationToolStripMenuItem
             // 
-            this.configurationToolStripMenuItem.Image = global::Beep.IDE.Properties.Resources.ConfigurationEditor;
-            this.configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
-            this.configurationToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.configurationToolStripMenuItem.Text = "Configuration";
+            configurationToolStripMenuItem.Image = Properties.Resources.ConfigurationEditor;
+            configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
+            configurationToolStripMenuItem.Size = new Size(153, 22);
+            configurationToolStripMenuItem.Text = "Configuration";
             // 
             // exitToolStripMenuItem
             // 
-            this.exitToolStripMenuItem.Image = global::Beep.IDE.Properties.Resources.Exit;
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
+            exitToolStripMenuItem.Image = Properties.Resources.Exit;
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new Size(153, 22);
+            exitToolStripMenuItem.Text = "Exit";
             // 
             // toolStrip1
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.NewFiletoolStripButton,
-            this.OpenFiletoolStripButton,
-            this.SaveFiletoolStripButton,
-            this.SaveAstoolStripButton,
-            this.SaveAsProjecttoolStripButton,
-            this.ConfigurationtoolStripButton,
-            this.toolStripSeparator1,
-            this.AligntoolStripButton,
-            this.toolStripSeparator2,
-            this.RuntoolStripButton,
-            this.PausetoolStripButton,
-            this.StoptoolStripButton});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(880, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
+            toolStrip1.Items.AddRange(new ToolStripItem[] { NewFiletoolStripButton, OpenFiletoolStripButton, SaveFiletoolStripButton, SaveAstoolStripButton, SaveAsProjecttoolStripButton, ConfigurationtoolStripButton, toolStripSeparator1, AligntoolStripButton, toolStripSeparator2, RuntoolStripButton, PausetoolStripButton, StoptoolStripButton });
+            toolStrip1.Location = new Point(0, 24);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(1027, 25);
+            toolStrip1.TabIndex = 1;
+            toolStrip1.Text = "toolStrip1";
             // 
             // NewFiletoolStripButton
             // 
-            this.NewFiletoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.NewFiletoolStripButton.Image = global::Beep.IDE.Properties.Resources.NewDocument;
-            this.NewFiletoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.NewFiletoolStripButton.Name = "NewFiletoolStripButton";
-            this.NewFiletoolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.NewFiletoolStripButton.Text = "New File";
+            NewFiletoolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            NewFiletoolStripButton.Image = Properties.Resources.NewDocument;
+            NewFiletoolStripButton.ImageTransparentColor = Color.Magenta;
+            NewFiletoolStripButton.Name = "NewFiletoolStripButton";
+            NewFiletoolStripButton.Size = new Size(23, 22);
+            NewFiletoolStripButton.Text = "New File";
             // 
             // OpenFiletoolStripButton
             // 
-            this.OpenFiletoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.OpenFiletoolStripButton.Image = global::Beep.IDE.Properties.Resources.OpenFile;
-            this.OpenFiletoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.OpenFiletoolStripButton.Name = "OpenFiletoolStripButton";
-            this.OpenFiletoolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.OpenFiletoolStripButton.Text = "Open File";
+            OpenFiletoolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            OpenFiletoolStripButton.Image = Properties.Resources.OpenFile;
+            OpenFiletoolStripButton.ImageTransparentColor = Color.Magenta;
+            OpenFiletoolStripButton.Name = "OpenFiletoolStripButton";
+            OpenFiletoolStripButton.Size = new Size(23, 22);
+            OpenFiletoolStripButton.Text = "Open File";
             // 
             // SaveFiletoolStripButton
             // 
-            this.SaveFiletoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SaveFiletoolStripButton.Image = global::Beep.IDE.Properties.Resources.SaveFileDialog;
-            this.SaveFiletoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SaveFiletoolStripButton.Name = "SaveFiletoolStripButton";
-            this.SaveFiletoolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.SaveFiletoolStripButton.Text = "Save";
+            SaveFiletoolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            SaveFiletoolStripButton.Image = Properties.Resources.SaveFileDialog;
+            SaveFiletoolStripButton.ImageTransparentColor = Color.Magenta;
+            SaveFiletoolStripButton.Name = "SaveFiletoolStripButton";
+            SaveFiletoolStripButton.Size = new Size(23, 22);
+            SaveFiletoolStripButton.Text = "Save";
             // 
             // SaveAstoolStripButton
             // 
-            this.SaveAstoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SaveAstoolStripButton.Image = global::Beep.IDE.Properties.Resources.SaveAs;
-            this.SaveAstoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SaveAstoolStripButton.Name = "SaveAstoolStripButton";
-            this.SaveAstoolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.SaveAstoolStripButton.Text = "Save As";
+            SaveAstoolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            SaveAstoolStripButton.Image = Properties.Resources.SaveAs;
+            SaveAstoolStripButton.ImageTransparentColor = Color.Magenta;
+            SaveAstoolStripButton.Name = "SaveAstoolStripButton";
+            SaveAstoolStripButton.Size = new Size(23, 22);
+            SaveAstoolStripButton.Text = "Save As";
             // 
             // SaveAsProjecttoolStripButton
             // 
-            this.SaveAsProjecttoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SaveAsProjecttoolStripButton.Image = global::Beep.IDE.Properties.Resources.SaveTable;
-            this.SaveAsProjecttoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SaveAsProjecttoolStripButton.Name = "SaveAsProjecttoolStripButton";
-            this.SaveAsProjecttoolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.SaveAsProjecttoolStripButton.Text = "Save As in Project";
+            SaveAsProjecttoolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            SaveAsProjecttoolStripButton.Image = Properties.Resources.SaveTable;
+            SaveAsProjecttoolStripButton.ImageTransparentColor = Color.Magenta;
+            SaveAsProjecttoolStripButton.Name = "SaveAsProjecttoolStripButton";
+            SaveAsProjecttoolStripButton.Size = new Size(23, 22);
+            SaveAsProjecttoolStripButton.Text = "Save As in Project";
             // 
             // ConfigurationtoolStripButton
             // 
-            this.ConfigurationtoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ConfigurationtoolStripButton.Image = global::Beep.IDE.Properties.Resources.ConfigurationEditor;
-            this.ConfigurationtoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ConfigurationtoolStripButton.Name = "ConfigurationtoolStripButton";
-            this.ConfigurationtoolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.ConfigurationtoolStripButton.Text = "Configuration";
+            ConfigurationtoolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            ConfigurationtoolStripButton.Image = Properties.Resources.ConfigurationEditor;
+            ConfigurationtoolStripButton.ImageTransparentColor = Color.Magenta;
+            ConfigurationtoolStripButton.Name = "ConfigurationtoolStripButton";
+            ConfigurationtoolStripButton.Size = new Size(23, 22);
+            ConfigurationtoolStripButton.Text = "Configuration";
             // 
             // toolStripSeparator1
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(6, 25);
             // 
             // AligntoolStripButton
             // 
-            this.AligntoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.AligntoolStripButton.Image = global::Beep.IDE.Properties.Resources.AlignRight;
-            this.AligntoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.AligntoolStripButton.Name = "AligntoolStripButton";
-            this.AligntoolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.AligntoolStripButton.Text = "Align Ouput Panel";
+            AligntoolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            AligntoolStripButton.Image = Properties.Resources.AlignRight;
+            AligntoolStripButton.ImageTransparentColor = Color.Magenta;
+            AligntoolStripButton.Name = "AligntoolStripButton";
+            AligntoolStripButton.Size = new Size(23, 22);
+            AligntoolStripButton.Text = "Align Ouput Panel";
             // 
             // toolStripSeparator2
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(6, 25);
             // 
             // RuntoolStripButton
             // 
-            this.RuntoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.RuntoolStripButton.Image = global::Beep.IDE.Properties.Resources.Run;
-            this.RuntoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.RuntoolStripButton.Name = "RuntoolStripButton";
-            this.RuntoolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.RuntoolStripButton.Text = "Run";
+            RuntoolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            RuntoolStripButton.Image = Properties.Resources.Run;
+            RuntoolStripButton.ImageTransparentColor = Color.Magenta;
+            RuntoolStripButton.Name = "RuntoolStripButton";
+            RuntoolStripButton.Size = new Size(23, 22);
+            RuntoolStripButton.Text = "Run";
             // 
             // PausetoolStripButton
             // 
-            this.PausetoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.PausetoolStripButton.Image = global::Beep.IDE.Properties.Resources.Pause;
-            this.PausetoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.PausetoolStripButton.Name = "PausetoolStripButton";
-            this.PausetoolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.PausetoolStripButton.Text = "Pause";
+            PausetoolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            PausetoolStripButton.Image = Properties.Resources.Pause;
+            PausetoolStripButton.ImageTransparentColor = Color.Magenta;
+            PausetoolStripButton.Name = "PausetoolStripButton";
+            PausetoolStripButton.Size = new Size(23, 22);
+            PausetoolStripButton.Text = "Pause";
             // 
             // StoptoolStripButton
             // 
-            this.StoptoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.StoptoolStripButton.Image = global::Beep.IDE.Properties.Resources.Stop;
-            this.StoptoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.StoptoolStripButton.Name = "StoptoolStripButton";
-            this.StoptoolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.StoptoolStripButton.Text = "Stop";
+            StoptoolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            StoptoolStripButton.Image = Properties.Resources.Stop;
+            StoptoolStripButton.ImageTransparentColor = Color.Magenta;
+            StoptoolStripButton.Name = "StoptoolStripButton";
+            StoptoolStripButton.Size = new Size(23, 22);
+            StoptoolStripButton.Text = "Stop";
             // 
             // splitContainer1
             // 
-            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 49);
-            this.splitContainer1.Name = "splitContainer1";
+            splitContainer1.BorderStyle = BorderStyle.FixedSingle;
+            splitContainer1.Dock = DockStyle.Fill;
+            splitContainer1.Location = new Point(0, 49);
+            splitContainer1.Margin = new Padding(4, 3, 4, 3);
+            splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.splitContainer2);
+            splitContainer1.Panel1.Controls.Add(splitContainer2);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.OutputtextBox);
-            this.splitContainer1.Panel2.Controls.Add(this.toolStrip2);
-            this.splitContainer1.Panel2.Controls.Add(this.OutputstatusStrip);
-            this.splitContainer1.Size = new System.Drawing.Size(880, 631);
-            this.splitContainer1.SplitterDistance = 536;
-            this.splitContainer1.SplitterWidth = 3;
-            this.splitContainer1.TabIndex = 2;
+            splitContainer1.Panel2.Controls.Add(OutputtextBox);
+            splitContainer1.Panel2.Controls.Add(toolStrip2);
+            splitContainer1.Panel2.Controls.Add(OutputstatusStrip);
+            splitContainer1.Size = new Size(1027, 736);
+            splitContainer1.SplitterDistance = 625;
+            splitContainer1.TabIndex = 2;
             // 
             // splitContainer2
             // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            splitContainer2.Dock = DockStyle.Fill;
+            splitContainer2.Location = new Point(0, 0);
+            splitContainer2.Margin = new Padding(4, 3, 4, 3);
+            splitContainer2.Name = "splitContainer2";
+            splitContainer2.Orientation = Orientation.Horizontal;
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.beepTabControl1);
+            splitContainer2.Panel1.Controls.Add(beepTabControl1);
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.CodeStatusStrip);
-            this.splitContainer2.Size = new System.Drawing.Size(534, 629);
-            this.splitContainer2.SplitterDistance = 600;
-            this.splitContainer2.SplitterWidth = 1;
-            this.splitContainer2.TabIndex = 1;
+            splitContainer2.Panel2.Controls.Add(CodeStatusStrip);
+            splitContainer2.Size = new Size(623, 734);
+            splitContainer2.SplitterDistance = 700;
+            splitContainer2.SplitterWidth = 1;
+            splitContainer2.TabIndex = 1;
             // 
             // beepTabControl1
             // 
-            this.beepTabControl1.Controls.Add(this.tabPage2);
-            this.beepTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.beepTabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.beepTabControl1.Location = new System.Drawing.Point(0, 0);
-            this.beepTabControl1.Name = "beepTabControl1";
-            this.beepTabControl1.Padding = new System.Drawing.Point(14, 4);
-            this.beepTabControl1.SelectedIndex = 0;
-            this.beepTabControl1.Size = new System.Drawing.Size(534, 600);
-            this.beepTabControl1.TabIndex = 0;
+            beepTabControl1.closeButton = (RectangleF)resources.GetObject("beepTabControl1.closeButton");
+            beepTabControl1.Controls.Add(tabPage2);
+            beepTabControl1.Dock = DockStyle.Fill;
+            beepTabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
+            beepTabControl1.Location = new Point(0, 0);
+            beepTabControl1.Margin = new Padding(4, 3, 4, 3);
+            beepTabControl1.Name = "beepTabControl1";
+            beepTabControl1.nextButton = (RectangleF)resources.GetObject("beepTabControl1.nextButton");
+            beepTabControl1.Padding = new Point(14, 4);
+            beepTabControl1.prevButton = (RectangleF)resources.GetObject("beepTabControl1.prevButton");
+            beepTabControl1.SelectedIndex = 0;
+            beepTabControl1.Size = new Size(623, 700);
+            beepTabControl1.TabIndex = 0;
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(526, 572);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            tabPage2.Location = new Point(4, 26);
+            tabPage2.Margin = new Padding(4, 3, 4, 3);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(4, 3, 4, 3);
+            tabPage2.Size = new Size(615, 670);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "tabPage2";
+            tabPage2.UseVisualStyleBackColor = true;
             // 
             // CodeStatusStrip
             // 
-            this.CodeStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.LinetoolStripStatusLabel,
-            this.CurrentLineValue,
-            this.ColumnPositionLabel,
-            this.TotalLinestoolStripStatusLabel,
-            this.TotalLinesValue});
-            this.CodeStatusStrip.Location = new System.Drawing.Point(0, 4);
-            this.CodeStatusStrip.Name = "CodeStatusStrip";
-            this.CodeStatusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
-            this.CodeStatusStrip.Size = new System.Drawing.Size(534, 24);
-            this.CodeStatusStrip.TabIndex = 0;
-            this.CodeStatusStrip.Text = "statusStrip2";
+            CodeStatusStrip.Dock = DockStyle.Fill;
+            CodeStatusStrip.Items.AddRange(new ToolStripItem[] { LinetoolStripStatusLabel, CurrentLineValue, ColumnPositionLabel, TotalLinestoolStripStatusLabel, TotalLinesValue, progressBar1 });
+            CodeStatusStrip.Location = new Point(0, 0);
+            CodeStatusStrip.Name = "CodeStatusStrip";
+            CodeStatusStrip.Size = new Size(623, 33);
+            CodeStatusStrip.TabIndex = 0;
+            CodeStatusStrip.Text = "statusStrip2";
             // 
             // LinetoolStripStatusLabel
             // 
-            this.LinetoolStripStatusLabel.BackColor = System.Drawing.Color.White;
-            this.LinetoolStripStatusLabel.Name = "LinetoolStripStatusLabel";
-            this.LinetoolStripStatusLabel.Size = new System.Drawing.Size(26, 19);
-            this.LinetoolStripStatusLabel.Text = "Ln :";
+            LinetoolStripStatusLabel.BackColor = Color.White;
+            LinetoolStripStatusLabel.Name = "LinetoolStripStatusLabel";
+            LinetoolStripStatusLabel.Size = new Size(26, 28);
+            LinetoolStripStatusLabel.Text = "Ln :";
             // 
             // CurrentLineValue
             // 
-            this.CurrentLineValue.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.CurrentLineValue.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedInner;
-            this.CurrentLineValue.Name = "CurrentLineValue";
-            this.CurrentLineValue.Size = new System.Drawing.Size(14, 19);
-            this.CurrentLineValue.Text = " ";
-            this.CurrentLineValue.ToolTipText = "Line";
+            CurrentLineValue.BorderSides = ToolStripStatusLabelBorderSides.Left | ToolStripStatusLabelBorderSides.Top | ToolStripStatusLabelBorderSides.Right | ToolStripStatusLabelBorderSides.Bottom;
+            CurrentLineValue.BorderStyle = Border3DStyle.RaisedInner;
+            CurrentLineValue.Name = "CurrentLineValue";
+            CurrentLineValue.Size = new Size(14, 28);
+            CurrentLineValue.Text = " ";
+            CurrentLineValue.ToolTipText = "Line";
             // 
             // ColumnPositionLabel
             // 
-            this.ColumnPositionLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.ColumnPositionLabel.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedInner;
-            this.ColumnPositionLabel.Name = "ColumnPositionLabel";
-            this.ColumnPositionLabel.Size = new System.Drawing.Size(14, 19);
-            this.ColumnPositionLabel.Text = " ";
-            this.ColumnPositionLabel.ToolTipText = "Column";
+            ColumnPositionLabel.BorderSides = ToolStripStatusLabelBorderSides.Left | ToolStripStatusLabelBorderSides.Top | ToolStripStatusLabelBorderSides.Right | ToolStripStatusLabelBorderSides.Bottom;
+            ColumnPositionLabel.BorderStyle = Border3DStyle.RaisedInner;
+            ColumnPositionLabel.Name = "ColumnPositionLabel";
+            ColumnPositionLabel.Size = new Size(14, 28);
+            ColumnPositionLabel.Text = " ";
+            ColumnPositionLabel.ToolTipText = "Column";
             // 
             // TotalLinestoolStripStatusLabel
             // 
-            this.TotalLinestoolStripStatusLabel.BackColor = System.Drawing.Color.White;
-            this.TotalLinestoolStripStatusLabel.Name = "TotalLinestoolStripStatusLabel";
-            this.TotalLinestoolStripStatusLabel.Size = new System.Drawing.Size(35, 19);
-            this.TotalLinestoolStripStatusLabel.Text = "Total:";
+            TotalLinestoolStripStatusLabel.BackColor = Color.White;
+            TotalLinestoolStripStatusLabel.Name = "TotalLinestoolStripStatusLabel";
+            TotalLinestoolStripStatusLabel.Size = new Size(35, 28);
+            TotalLinestoolStripStatusLabel.Text = "Total:";
             // 
             // TotalLinesValue
             // 
-            this.TotalLinesValue.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.TotalLinesValue.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedInner;
-            this.TotalLinesValue.Name = "TotalLinesValue";
-            this.TotalLinesValue.Size = new System.Drawing.Size(14, 19);
-            this.TotalLinesValue.Text = " ";
-            this.TotalLinesValue.ToolTipText = "Total  Lines";
+            TotalLinesValue.BorderSides = ToolStripStatusLabelBorderSides.Left | ToolStripStatusLabelBorderSides.Top | ToolStripStatusLabelBorderSides.Right | ToolStripStatusLabelBorderSides.Bottom;
+            TotalLinesValue.BorderStyle = Border3DStyle.RaisedInner;
+            TotalLinesValue.Name = "TotalLinesValue";
+            TotalLinesValue.Size = new Size(14, 28);
+            TotalLinesValue.Text = " ";
+            TotalLinesValue.ToolTipText = "Total  Lines";
+            // 
+            // progressBar1
+            // 
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(100, 27);
+            progressBar1.Style = ProgressBarStyle.Marquee;
             // 
             // OutputtextBox
             // 
-            this.OutputtextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.OutputtextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OutputtextBox.Location = new System.Drawing.Point(0, 25);
-            this.OutputtextBox.Multiline = true;
-            this.OutputtextBox.Name = "OutputtextBox";
-            this.OutputtextBox.Size = new System.Drawing.Size(339, 582);
-            this.OutputtextBox.TabIndex = 0;
+            OutputtextBox.BorderStyle = BorderStyle.FixedSingle;
+            OutputtextBox.Dock = DockStyle.Fill;
+            OutputtextBox.Location = new Point(0, 25);
+            OutputtextBox.Margin = new Padding(4, 3, 4, 3);
+            OutputtextBox.Multiline = true;
+            OutputtextBox.Name = "OutputtextBox";
+            OutputtextBox.Size = new Size(396, 685);
+            OutputtextBox.TabIndex = 0;
             // 
             // toolStrip2
             // 
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ClearOutputtoolStripButton});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(339, 25);
-            this.toolStrip2.TabIndex = 2;
-            this.toolStrip2.Text = "toolStrip2";
+            toolStrip2.Items.AddRange(new ToolStripItem[] { ClearOutputtoolStripButton });
+            toolStrip2.Location = new Point(0, 0);
+            toolStrip2.Name = "toolStrip2";
+            toolStrip2.Size = new Size(396, 25);
+            toolStrip2.TabIndex = 2;
+            toolStrip2.Text = "toolStrip2";
             // 
             // ClearOutputtoolStripButton
             // 
-            this.ClearOutputtoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ClearOutputtoolStripButton.Image = global::Beep.IDE.Properties.Resources.ClearWindowContent;
-            this.ClearOutputtoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ClearOutputtoolStripButton.Name = "ClearOutputtoolStripButton";
-            this.ClearOutputtoolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.ClearOutputtoolStripButton.Text = "Clear";
+            ClearOutputtoolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            ClearOutputtoolStripButton.Image = Properties.Resources.ClearWindowContent;
+            ClearOutputtoolStripButton.ImageTransparentColor = Color.Magenta;
+            ClearOutputtoolStripButton.Name = "ClearOutputtoolStripButton";
+            ClearOutputtoolStripButton.Size = new Size(23, 22);
+            ClearOutputtoolStripButton.Text = "Clear";
             // 
             // OutputstatusStrip
             // 
-            this.OutputstatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripProgressBar1,
-            this.OutputStatusLabel});
-            this.OutputstatusStrip.Location = new System.Drawing.Point(0, 607);
-            this.OutputstatusStrip.Name = "OutputstatusStrip";
-            this.OutputstatusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
-            this.OutputstatusStrip.Size = new System.Drawing.Size(339, 22);
-            this.OutputstatusStrip.TabIndex = 1;
-            this.OutputstatusStrip.Text = "statusStrip1";
+            OutputstatusStrip.Items.AddRange(new ToolStripItem[] { toolStripProgressBar1, OutputStatusLabel });
+            OutputstatusStrip.Location = new Point(0, 710);
+            OutputstatusStrip.Name = "OutputstatusStrip";
+            OutputstatusStrip.Size = new Size(396, 24);
+            OutputstatusStrip.TabIndex = 1;
+            OutputstatusStrip.Text = "statusStrip1";
             // 
             // toolStripProgressBar1
             // 
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(86, 16);
+            toolStripProgressBar1.Name = "toolStripProgressBar1";
+            toolStripProgressBar1.Size = new Size(100, 18);
             // 
             // OutputStatusLabel
             // 
-            this.OutputStatusLabel.Name = "OutputStatusLabel";
-            this.OutputStatusLabel.Size = new System.Drawing.Size(0, 17);
+            OutputStatusLabel.Name = "OutputStatusLabel";
+            OutputStatusLabel.Size = new Size(0, 19);
             // 
             // uc_BeepIDE
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.menuStrip1);
-            this.Name = "uc_BeepIDE";
-            this.Size = new System.Drawing.Size(880, 680);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            this.splitContainer2.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
-            this.beepTabControl1.ResumeLayout(false);
-            this.CodeStatusStrip.ResumeLayout(false);
-            this.CodeStatusStrip.PerformLayout();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
-            this.OutputstatusStrip.ResumeLayout(false);
-            this.OutputstatusStrip.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(splitContainer1);
+            Controls.Add(toolStrip1);
+            Controls.Add(menuStrip1);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "uc_BeepIDE";
+            Size = new Size(1027, 785);
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
+            splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel2.ResumeLayout(false);
+            splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
+            splitContainer2.Panel1.ResumeLayout(false);
+            splitContainer2.Panel2.ResumeLayout(false);
+            splitContainer2.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer2).EndInit();
+            splitContainer2.ResumeLayout(false);
+            beepTabControl1.ResumeLayout(false);
+            CodeStatusStrip.ResumeLayout(false);
+            CodeStatusStrip.PerformLayout();
+            toolStrip2.ResumeLayout(false);
+            toolStrip2.PerformLayout();
+            OutputstatusStrip.ResumeLayout(false);
+            OutputstatusStrip.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -531,5 +510,6 @@ namespace Beep.IDE
         private ToolStripStatusLabel ColumnPositionLabel;
         private ToolStripButton SaveAsProjecttoolStripButton;
         private ToolStripMenuItem SaveToProjecttoolStripMenuItem;
+        private ToolStripProgressBar progressBar1;
     }
 }
