@@ -7,6 +7,9 @@ using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.FileManager;
 using TheTechIdea.Util;
+using VPKSoft.ScintillaLexers;
+using VPKSoft.ScintillaLexers.CreateSpecificLexer;
+using VPKSoft.ScintillaLexers.ScintillaNotepadPlusPlus;
 
 
 namespace Beep.IDE
@@ -811,7 +814,8 @@ namespace Beep.IDE
                 {
                     AddFile(pfilenamewithpath);
                 }
-
+                
+                
             }
             catch (Exception ex)
             {
@@ -819,7 +823,7 @@ namespace Beep.IDE
             }
             return DMEEditor.ErrorObject;
         }
-        public void NewFile(Lexer lexer = Lexer.Python)
+        public void NewFile(Lexer lexer = Lexer.SCLEX_PYTHON)
         {
             string filename = "";
             if (Visutil.Controlmanager.InputBox("Beep IDE", "Enter File Name", ref filename) == Beep.Vis.Module.DialogResult.OK)
@@ -843,7 +847,7 @@ namespace Beep.IDE
         {
             TabsData data = new TabsData();
             Scintilla ctl = new Scintilla();
-
+            ctl.LexerName = Compilers.FirstOrDefault(p => p.Extension == ext).Lexer;
             createnewFileTab(filename + $"{ext}", null, ctl, data);
         }
         public void AddFile(string file, Lexer lexer)
@@ -881,7 +885,9 @@ namespace Beep.IDE
                 page.Controls.Add(ctl);
                 ctl.Name = filename;
                 ctl.Dock = System.Windows.Forms.DockStyle.Fill;
-
+                // SetScintillaStyles(ctl);
+           
+                //ctl.LexerName = Compilers.FirstOrDefault(p => p.Extension == filext).Lexer;
                 data.EditorControl = ctl;
                 data.Tabidx = idx;
                 data.filename = filename;
@@ -909,7 +915,7 @@ namespace Beep.IDE
                 InitHotkeys();
                 // STYLING
                 //  InitColors();
-                InitSyntaxColoring();
+               // InitSyntaxColoring();
 
                 // NUMBER MARGIN
                 InitNumberMargin();
@@ -922,6 +928,7 @@ namespace Beep.IDE
 
                 // DRAG DROP
                 InitDragDropFile();
+                ConfigureScintilla(ctl, filext);
             }
             catch (Exception ex)
             {
@@ -1547,6 +1554,211 @@ namespace Beep.IDE
             GC.SuppressFinalize(this);
         }
         #endregion "Control Visualization"
+        #region "Configure Scintilla"
+        private void ConfigureScintilla(Scintilla ctl, string fileExtension)
+        {
+            switch (fileExtension.ToLower())
+            {
+                case ".ada":
+                    ctl.LexerName = "ada";
+                    ConfigureAdaStyles(ctl);
+                    break;
+                case ".asm":
+                    ctl.LexerName = "asm";
+                    ConfigureAsmStyles(ctl);
+                    break;
+                case ".bb":
+                    ctl.LexerName = "blitzbasic";
+                    ConfigureBlitzBasicStyles(ctl);
+                    break;
+                case ".cpp":
+                case ".c":
+                case ".h":
+                    ctl.LexerName = "cpp";
+                    ConfigureCppStyles(ctl);
+                    break;
+                case ".css":
+                    ctl.LexerName = "css";
+                    ConfigureCssStyles(ctl);
+                    break;
+                case ".html":
+                case ".htm":
+                    ctl.LexerName = "html";
+                    ConfigureHtmlStyles(ctl);
+                    break;
+                case ".js":
+                    ctl.LexerName = "javascript";
+                    ConfigureJavaScriptStyles(ctl);
+                    break;
+                case ".cs":
+                    ctl.LexerName = "cs";
+                    ConfigureCSharpStyles(ctl);
+                    break;
+                case ".py":
+                    ctl.LexerName = "python";
+                    ConfigurePythonStyles(ctl);
+                    break;
+                case ".sql":
+                    ctl.LexerName = "sql";
+                    ConfigureSqlStyles(ctl);
+                    break;
+                case ".xml":
+                    ctl.LexerName = "xml";
+                    ConfigureXmlStyles(ctl);
+                    break;
+                // Add more cases for other languages as needed
+                default:
+                    ctl.LexerName = "null"; // Plain text or unsupported file type
+                    break;
+            }
 
+            // Common Scintilla settings
+            ctl.Styles[Style.Css.SingleString].ForeColor = Color.Brown;
+            ctl.Styles[Style.Css.DoubleString].ForeColor = Color.Brown;
+           // ctl.Margins[0].Width = 40; // Line numbers margin
+            ctl.Colorize(0, ctl.TextLength); // Apply syntax highlighting
+        }
+
+        private void ConfigureCSharpStyles(Scintilla ctl)
+        {
+            ctl.Styles[Style.Cpp.Default].ForeColor = Color.Black;
+            ctl.Styles[Style.Cpp.Comment].ForeColor = Color.Green;
+            ctl.Styles[Style.Cpp.CommentLine].ForeColor = Color.DarkGreen;
+            ctl.Styles[Style.Cpp.CommentDoc].ForeColor = Color.LightGreen;
+            ctl.Styles[Style.Cpp.Number].ForeColor = Color.DarkOrange;
+            ctl.Styles[Style.Cpp.Word].ForeColor = Color.Blue;
+            ctl.Styles[Style.Cpp.String].ForeColor = Color.Brown;
+            ctl.Styles[Style.Cpp.Character].ForeColor = Color.DarkRed;
+            ctl.Styles[Style.Cpp.Operator].ForeColor = Color.Gray;
+            ctl.Styles[Style.Cpp.Preprocessor].ForeColor = Color.Purple;
+        }
+
+        private void ConfigureHtmlStyles(Scintilla ctl)
+        {
+            ctl.Styles[Style.Html.Default].ForeColor = Color.Black;
+            ctl.Styles[Style.Html.Tag].ForeColor = Color.Blue;
+            ctl.Styles[Style.Html.Attribute].ForeColor = Color.Red;
+            ctl.Styles[Style.Html.Number].ForeColor = Color.DarkOrange;
+            ctl.Styles[Style.Html.DoubleString].ForeColor = Color.Brown;
+            ctl.Styles[Style.Html.SingleString].ForeColor = Color.DarkRed;
+            ctl.Styles[Style.Html.Comment].ForeColor = Color.Green;
+            ctl.Styles[Style.Html.TagEnd].ForeColor = Color.BlueViolet;
+            ctl.Styles[Style.Html.Entity].ForeColor = Color.Orange;
+        }
+
+        private void ConfigureJavaScriptStyles(Scintilla ctl)
+        {
+            ctl.Styles[Style.JavaScript.Default].ForeColor = Color.Black;
+            ctl.Styles[Style.JavaScript.Comment].ForeColor = Color.Green;
+            ctl.Styles[Style.JavaScript.CommentLine].ForeColor = Color.DarkGreen;
+            ctl.Styles[Style.JavaScript.CommentDoc].ForeColor = Color.LightGreen;
+            ctl.Styles[Style.JavaScript.Number].ForeColor = Color.DarkOrange;
+            ctl.Styles[Style.JavaScript.Word].ForeColor = Color.Blue;
+            ctl.Styles[Style.JavaScript.SingleString].ForeColor = Color.Brown;
+            ctl.Styles[Style.JavaScript.Keyword].ForeColor = Color.DarkRed;
+            ctl.Styles[Style.JavaScript.Symbols].ForeColor = Color.Gray;
+            ctl.Styles[Style.JavaScript.Regex].ForeColor = Color.Purple;
+        }
+        private void ConfigureAdaStyles(Scintilla ctl)
+        {
+            ctl.Styles[Style.Ada.Default].ForeColor = Color.Black;
+            ctl.Styles[Style.Ada.CommentLine].ForeColor = Color.Green;
+            ctl.Styles[Style.Ada.Number].ForeColor = Color.DarkOrange;
+            ctl.Styles[Style.Ada.Word].ForeColor = Color.Blue;
+            ctl.Styles[Style.Ada.String].ForeColor = Color.Brown;
+            ctl.Styles[Style.Ada.Character].ForeColor = Color.DarkRed;
+            ctl.Styles[Style.Ada.Delimiter].ForeColor = Color.Gray;
+            ctl.Styles[Style.Ada.Label].ForeColor = Color.Purple;
+            ctl.Styles[Style.Ada.Illegal].ForeColor = Color.Red;
+        }
+
+        private void ConfigureAsmStyles(Scintilla ctl)
+        {
+            ctl.Styles[Style.Asm.Default].ForeColor = Color.Black;
+            ctl.Styles[Style.Asm.Comment].ForeColor = Color.Green;
+            ctl.Styles[Style.Asm.CommentBlock].ForeColor = Color.DarkGreen;
+            ctl.Styles[Style.Asm.Number].ForeColor = Color.DarkOrange;
+            ctl.Styles[Style.Asm.CpuInstruction].ForeColor = Color.Blue;
+            ctl.Styles[Style.Asm.Register].ForeColor = Color.Purple;
+            ctl.Styles[Style.Asm.Operator].ForeColor = Color.Gray;
+            ctl.Styles[Style.Asm.Directive].ForeColor = Color.DarkRed;
+            ctl.Styles[Style.Asm.DirectiveOperand].ForeColor = Color.OrangeRed;
+        }
+
+        private void ConfigureBlitzBasicStyles(Scintilla ctl)
+        {
+            ctl.Styles[Style.BlitzBasic.Default].ForeColor = Color.Black;
+            ctl.Styles[Style.BlitzBasic.Comment].ForeColor = Color.Green;
+            ctl.Styles[Style.BlitzBasic.Number].ForeColor = Color.DarkOrange;
+            ctl.Styles[Style.BlitzBasic.Keyword].ForeColor = Color.Blue;
+            ctl.Styles[Style.BlitzBasic.String].ForeColor = Color.Brown;
+            ctl.Styles[Style.BlitzBasic.Operator].ForeColor = Color.Gray;
+            ctl.Styles[Style.BlitzBasic.Label].ForeColor = Color.Purple;
+            ctl.Styles[Style.BlitzBasic.Constant].ForeColor = Color.DarkRed;
+        }
+
+        private void ConfigureCppStyles(Scintilla ctl)
+        {
+            ctl.Styles[Style.Cpp.Default].ForeColor = Color.Black;
+            ctl.Styles[Style.Cpp.Comment].ForeColor = Color.Green;
+            ctl.Styles[Style.Cpp.CommentLine].ForeColor = Color.DarkGreen;
+            ctl.Styles[Style.Cpp.CommentDoc].ForeColor = Color.LightGreen;
+            ctl.Styles[Style.Cpp.Number].ForeColor = Color.DarkOrange;
+            ctl.Styles[Style.Cpp.Word].ForeColor = Color.Blue;
+            ctl.Styles[Style.Cpp.String].ForeColor = Color.Brown;
+            ctl.Styles[Style.Cpp.Character].ForeColor = Color.DarkRed;
+            ctl.Styles[Style.Cpp.Operator].ForeColor = Color.Gray;
+            ctl.Styles[Style.Cpp.Preprocessor].ForeColor = Color.Purple;
+        }
+
+        private void ConfigureCssStyles(Scintilla ctl)
+        {
+            ctl.Styles[Style.Css.Default].ForeColor = Color.Black;
+            ctl.Styles[Style.Css.Tag].ForeColor = Color.Blue;
+            ctl.Styles[Style.Css.Class].ForeColor = Color.Magenta;
+            ctl.Styles[Style.Css.Operator].ForeColor = Color.Gray;
+           
+            ctl.Styles[Style.Css.Comment].ForeColor = Color.Green;
+            ctl.Styles[Style.Css.Id].ForeColor = Color.Purple;
+        }
+
+        private void ConfigurePythonStyles(Scintilla ctl)
+        {
+            ctl.Styles[Style.Python.Default].ForeColor = Color.Black;
+            ctl.Styles[Style.Python.CommentLine].ForeColor = Color.Green;
+            ctl.Styles[Style.Python.Number].ForeColor = Color.DarkOrange;
+            ctl.Styles[Style.Python.String].ForeColor = Color.Brown;
+            ctl.Styles[Style.Python.Word].ForeColor = Color.Blue;
+            ctl.Styles[Style.Python.Operator].ForeColor = Color.Gray;
+            ctl.Styles[Style.Python.ClassName].ForeColor = Color.DarkCyan;
+            ctl.Styles[Style.Python.DefName].ForeColor = Color.DarkCyan;
+        }
+
+        private void ConfigureSqlStyles(Scintilla ctl)
+        {
+            ctl.Styles[Style.Sql.Default].ForeColor = Color.Black;
+            ctl.Styles[Style.Sql.Comment].ForeColor = Color.Green;
+            ctl.Styles[Style.Sql.CommentLine].ForeColor = Color.DarkGreen;
+            ctl.Styles[Style.Sql.CommentDoc].ForeColor = Color.LightGreen;
+            ctl.Styles[Style.Sql.Number].ForeColor = Color.DarkOrange;
+            ctl.Styles[Style.Sql.Word].ForeColor = Color.Blue;
+            ctl.Styles[Style.Sql.String].ForeColor = Color.Brown;
+            ctl.Styles[Style.Sql.Operator].ForeColor = Color.Gray;
+            ctl.Styles[Style.Sql.Identifier].ForeColor = Color.DarkRed;
+        }
+
+        private void ConfigureXmlStyles(Scintilla ctl)
+        {
+            ctl.Styles[Style.Xml.Default].ForeColor = Color.Black;
+            ctl.Styles[Style.Xml.Tag].ForeColor = Color.Blue;
+            ctl.Styles[Style.Xml.Attribute].ForeColor = Color.Red;
+            ctl.Styles[Style.Xml.Number].ForeColor = Color.DarkOrange;
+            ctl.Styles[Style.Xml.DoubleString].ForeColor = Color.Brown;
+            ctl.Styles[Style.Xml.SingleString].ForeColor = Color.DarkRed;
+            ctl.Styles[Style.Xml.Comment].ForeColor = Color.Green;
+            ctl.Styles[Style.Xml.TagEnd].ForeColor = Color.BlueViolet;
+        }
+
+        #endregion "Configure Scintilla"
     }
 }
