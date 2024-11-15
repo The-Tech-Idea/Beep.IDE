@@ -1,16 +1,13 @@
-﻿using BeepEnterprize.Vis.Module;
-using BeepEnterprize.Winform.Vis;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using TheTechIdea;
-using TheTechIdea.Beep;
+﻿using TheTechIdea.Beep.ConfigUtil;
+using TheTechIdea.Beep.Addin;
+
+using TheTechIdea.Beep.Editor;
+using TheTechIdea.Beep.Utilities;
+
 using TheTechIdea.Beep.Vis;
-using TheTechIdea.Util;
+using TheTechIdea.Beep.Vis.Modules;
+using TheTechIdea.Beep;
+using TheTechIdea.Beep.DriversConfigurations;
 
 
 
@@ -170,7 +167,7 @@ namespace Beep.IDE.Extensions
                                     f.DatabaseType = DataSourceType.CSV;
                                     break;
                                 case "xml":
-                                    f.DatabaseType = DataSourceType.xml;
+                                    f.DatabaseType = DataSourceType.XML;
 
                                     break;
                                 case "json":
@@ -306,7 +303,7 @@ namespace Beep.IDE.Extensions
                             f.DatabaseType = DataSourceType.CSV;
                             break;
                         case "xml":
-                            f.DatabaseType = DataSourceType.xml;
+                            f.DatabaseType = DataSourceType.XML;
 
                             break;
                         case "json":
@@ -344,7 +341,7 @@ namespace Beep.IDE.Extensions
 
             try
             {
-                if (Vismanager.Controlmanager.InputBoxYesNo("Beep AI", $"Would you Like to Copy File {filename} to Local Folders?") == BeepEnterprize.Vis.Module.DialogResult.OK)
+                if (Vismanager.Controlmanager.InputBoxYesNo("Beep AI", $"Would you Like to Copy File {filename} to Local Folders?") == TheTechIdea.Beep.Vis.Modules.DialogResult.OK)
                 {
                     CopyFileToLocal(sourcPath, DMEEditor.ConfigEditor.Config.ProjectDataPath, filename);
                 }

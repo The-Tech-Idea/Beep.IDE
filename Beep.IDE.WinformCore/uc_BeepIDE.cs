@@ -1,13 +1,18 @@
 ﻿using Beep.IDE.Extensions;
-using Beep.Vis.Module;
+
 using System.Data;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.DataBase;
 using TheTechIdea.Beep.Vis;
-using TheTechIdea.Logger;
-using TheTechIdea.Util;
+using TheTechIdea.Beep.Addin;
+using TheTechIdea.Beep.ConfigUtil;
 
+using TheTechIdea.Beep.Editor;
+using TheTechIdea.Beep.Logger;
+using TheTechIdea.Beep.Utilities;
+using TheTechIdea.Beep.Vis.Modules;
+using DialogResult = TheTechIdea.Beep.Vis.Modules.DialogResult;
 namespace Beep.IDE
 {
     [AddinAttribute(Caption = "Beep IDE", Name = "BeepIDE", misc = "App", ObjectType = "Beep.Admin", addinType = AddinType.Control, displayType = DisplayType.InControl)]

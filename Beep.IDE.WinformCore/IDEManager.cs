@@ -1,15 +1,17 @@
 ﻿using Beep.Compilers.Module;
 using Beep.IDE.Winform.Controls;
-using Beep.Vis.Module;
+
 using ScintillaNET;
 using System.Reflection;
-using TheTechIdea;
-using TheTechIdea.Beep;
 using TheTechIdea.Beep.FileManager;
-using TheTechIdea.Util;
-using VPKSoft.ScintillaLexers;
-using VPKSoft.ScintillaLexers.CreateSpecificLexer;
-using VPKSoft.ScintillaLexers.ScintillaNotepadPlusPlus;
+using TheTechIdea.Beep.Addin;
+using TheTechIdea.Beep.ConfigUtil;
+
+using TheTechIdea.Beep.Editor;
+using TheTechIdea.Beep.Logger;
+using TheTechIdea.Beep.Utilities;
+using TheTechIdea.Beep.Vis.Modules;
+using DialogResult = TheTechIdea.Beep.Vis.Modules.DialogResult;
 
 
 namespace Beep.IDE
@@ -194,7 +196,7 @@ namespace Beep.IDE
                 {
                     if (compiler.IsCompilerAvailable)
                     {
-                        if (Visutil.Controlmanager.InputBoxYesNo("Beep IDE", "Already the Compiler is Initialized , woudl you like to shutdown and open new one?") == Beep.Vis.Module.DialogResult.Yes)
+                        if (Visutil.Controlmanager.InputBoxYesNo("Beep IDE", "Already the Compiler is Initialized , woudl you like to shutdown and open new one?") == DialogResult.Yes)
                         {
                             compiler.Shutdown();
                         }
@@ -508,7 +510,7 @@ namespace Beep.IDE
             }
             else
             {
-                if (Visutil.Controlmanager.InputBoxYesNo("Beep IDE", "File not Saved , Would you like to save it") == Beep.Vis.Module.DialogResult.Yes)
+                if (Visutil.Controlmanager.InputBoxYesNo("Beep IDE", "File not Saved , Would you like to save it") ==DialogResult.Yes)
                 {
                     string retval = Visutil.Controlmanager.SaveFileDialog(t.ext, Environment.CurrentDirectory, null);
 
@@ -703,7 +705,7 @@ namespace Beep.IDE
                 }
                if (string.IsNullOrEmpty(DMEEditor.ConfigEditor.Config.ProjectsPath))
                {
-                  if (Visutil.Controlmanager.InputBox("Beep", "Pick Projects Root Path (Path to host all your Projects)", ref rootprojectpath) == Beep.Vis.Module.DialogResult.OK)
+                  if (Visutil.Controlmanager.InputBox("Beep", "Pick Projects Root Path (Path to host all your Projects)", ref rootprojectpath) == DialogResult.OK)
                   {
                        if (!string.IsNullOrEmpty(rootprojectpath))
                        {
@@ -720,9 +722,9 @@ namespace Beep.IDE
                projectname= string.Empty;
                if (ok || firstproject)
                {
-                    if (Visutil.Controlmanager.InputBoxYesNo("Beep", "Would you like to Create New Project?") == Beep.Vis.Module.DialogResult.Yes)
+                    if (Visutil.Controlmanager.InputBoxYesNo("Beep", "Would you like to Create New Project?") == DialogResult.Yes)
                     {
-                        if (Visutil.Controlmanager.InputBox("Beep", "Pick Project Name", ref projectname) == Beep.Vis.Module.DialogResult.OK)
+                        if (Visutil.Controlmanager.InputBox("Beep", "Pick Project Name", ref projectname) == DialogResult.OK)
                         {
                             if (!string.IsNullOrEmpty(projectname))
                             {
@@ -759,7 +761,7 @@ namespace Beep.IDE
                 }
                 if (!firstproject && ok && !newproject)
                 {
-                    if (Visutil.Controlmanager.InputComboBox("Beep", "Pick Project Folder", projectlist, ref projectname) == Beep.Vis.Module.DialogResult.OK)
+                    if (Visutil.Controlmanager.InputComboBox("Beep", "Pick Project Folder", projectlist, ref projectname) == DialogResult.OK)
                     {
                         if (!string.IsNullOrEmpty(projectname))
                         {
@@ -826,11 +828,11 @@ namespace Beep.IDE
         public void NewFile(Lexer lexer = Lexer.SCLEX_PYTHON)
         {
             string filename = "";
-            if (Visutil.Controlmanager.InputBox("Beep IDE", "Enter File Name", ref filename) == Beep.Vis.Module.DialogResult.OK)
+            if (Visutil.Controlmanager.InputBox("Beep IDE", "Enter File Name", ref filename) == DialogResult.OK)
             {
                 List<string> c = Compilers.Select(p => p.Extension).ToList();
                 string retval = string.Empty;
-                if (Visutil.Controlmanager.InputComboBox("Compiler Select", "Please Selct File Type", c, ref retval) == Beep.Vis.Module.DialogResult.OK)
+                if (Visutil.Controlmanager.InputComboBox("Compiler Select", "Please Selct File Type", c, ref retval) == DialogResult.OK)
                 {
                     NewFile(filename, retval);
                 }

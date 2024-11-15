@@ -1,18 +1,12 @@
 ﻿using Beep.Compilers.Module;
-using Beep.Vis.Module;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading;
-using System.Windows.Forms;
-using TheTechIdea;
-using TheTechIdea.Beep;
+using TheTechIdea.Beep.Addin;
+using TheTechIdea.Beep.ConfigUtil;
 using TheTechIdea.Beep.DataBase;
-using TheTechIdea.Logger;
-using TheTechIdea.Util;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
+using TheTechIdea.Beep.Editor;
+using TheTechIdea.Beep.Logger;
+using TheTechIdea.Beep.Utilities;
+using TheTechIdea.Beep.Vis.Modules;
+
 
 namespace Beep.IDE
 {

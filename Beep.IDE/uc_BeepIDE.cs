@@ -1,13 +1,15 @@
 ﻿using Beep.IDE.Extensions;
-using BeepEnterprize.Vis.Module;
+
 using System.Data;
-using TheTechIdea;
-using TheTechIdea.Beep;
+using TheTechIdea.Beep.Addin;
+using TheTechIdea.Beep.ConfigUtil;
 using TheTechIdea.Beep.DataBase;
+using TheTechIdea.Beep.Editor;
+using TheTechIdea.Beep.Logger;
+using TheTechIdea.Beep.Utilities;
 using TheTechIdea.Beep.Vis;
-using TheTechIdea.Logger;
-using TheTechIdea.Util;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+using TheTechIdea.Beep.Vis.Modules;
+
 
 namespace Beep.IDE
 {

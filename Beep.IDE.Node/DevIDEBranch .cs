@@ -1,13 +1,16 @@
-﻿using Beep.Vis.Module;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using TheTechIdea;
-using TheTechIdea.Beep;
+﻿using TheTechIdea.Beep.ConfigUtil;
 using TheTechIdea.Beep.Addin;
-using TheTechIdea.Beep.DataBase;
+
+using TheTechIdea.Beep.Editor;
+using TheTechIdea.Beep.Utilities;
+
 using TheTechIdea.Beep.Vis;
-using TheTechIdea.Util;
+using TheTechIdea.Beep.Vis.Modules;
+using TheTechIdea.Beep;
+
+using TheTechIdea.Beep.DataBase;
+
+
 
 namespace Beep.IDE.Nodes
 {
