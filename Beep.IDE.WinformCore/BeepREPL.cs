@@ -97,7 +97,16 @@ namespace Beep.IDE
         }
         IProgress<PassedArgs> progress;
         CancellationToken token;
-        public IVisManager Visutil { get; set; }
+
+        public event EventHandler OnStart;
+        public event EventHandler OnStop;
+        public event EventHandler<ErrorEventArgs> OnError;
+
+        public IAppManager Visutil { get; set; }
+        public AddinDetails Details { get  ; set  ; }
+        public Dependencies Dependencies { get  ; set  ; }
+        public string GuidID { get  ; set  ; }
+
         public void Run(IPassedArgs pPassedarg)
         {
           
@@ -113,12 +122,67 @@ namespace Beep.IDE
             ErrorObject = per;
             DMEEditor = pbl;
 
-            Visutil = (IVisManager)e.Objects.Where(c => c.Name == "VISUTIL").FirstOrDefault().obj;
+            Visutil = (IAppManager)e.Objects.Where(c => c.Name == "VISUTIL").FirstOrDefault().obj;
 
           
             CancellationTokenSource tokenSource = new CancellationTokenSource();
             token = tokenSource.Token;
           
+        }
+
+        public void Initialize()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Suspend()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Resume()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetErrorDetails()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Run(params object[] args)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IErrorsInfo> RunAsync(IPassedArgs pPassedarg)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IErrorsInfo> RunAsync(params object[] args)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Configure(Dictionary<string, object> settings)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ApplyTheme()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnNavigatedTo(Dictionary<string, object> parameters)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetError(string message)
+        {
+            throw new NotImplementedException();
         }
     }
 

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
+		<TargetFrameworks>net8.0-windows</TargetFrameworks>
 		<Nullable>enable</Nullable>
 		<UseWindowsForms>true</UseWindowsForms>
 		<ImplicitUsings>enable</ImplicitUsings>
@@ -31,9 +31,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Scintilla5.NET" Version="5.6.2" />
-	  <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="2.0.2" />
-	  <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="2.0.2" />
-	  <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.128" />
+	  <PackageReference Include="Scintilla5.NET" Version="6.0.1" />
+	  <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="2.0.16" />
+	  <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="2.0.42" />
+	  <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.136" />
+	  <PackageReference Include="TheTechIdea.Beep.Winform.Default.Views" Version="1.0.1" />
 	</ItemGroup>
 </Project>

@@ -19,6 +19,7 @@ namespace Beep.IDE.Nodes
 
     public class DevIDEBranch : IBranch
     {
+        public string MenuID { get; set; } = "IDE";
         public string GuidID { get; set; } = Guid.NewGuid().ToString();
         public string ParentGuidID { get; set; }
         public string DataSourceConnectionGuidID { get; set; }
@@ -33,7 +34,7 @@ namespace Beep.IDE.Nodes
         public bool IsDataSourceNode { get; set; } = false;
         public int Order { get; set; } = 0;
         public object TreeStrucure { get; set; }
-        public IVisManager Visutil { get; set; }
+        public IAppManager Visutil { get; set; }
         public int ID { get; set; }
         public IDMEEditor DMEEditor { get; set; }
         public IDataSource DataSource { get; set; }

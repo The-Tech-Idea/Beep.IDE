@@ -1,8 +1,6 @@
-﻿using Beep.IDE.Extensions;
-
+﻿
 using System.Data;
-using TheTechIdea;
-using TheTechIdea.Beep;
+
 using TheTechIdea.Beep.DataBase;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Beep.Addin;
@@ -12,15 +10,23 @@ using TheTechIdea.Beep.Editor;
 using TheTechIdea.Beep.Logger;
 using TheTechIdea.Beep.Utilities;
 using TheTechIdea.Beep.Vis.Modules;
-using DialogResult = TheTechIdea.Beep.Vis.Modules.DialogResult;
+using TheTechIdea.Beep.Winform.Default.Views.Template;
+using TheTechIdea.Beep.Container.Services;
+using TheTechIdea.Beep.Winform.Controls.Helpers;
+
 namespace Beep.IDE
 {
     [AddinAttribute(Caption = "Beep IDE", Name = "BeepIDE", misc = "App", ObjectType = "Beep.Admin", addinType = AddinType.Control, displayType = DisplayType.InControl)]
-    public partial class uc_BeepIDE : UserControl, IDM_Addin
+    public partial class uc_BeepIDE :TemplateUserControl
     {
-        public uc_BeepIDE()
+        public uc_BeepIDE(IBeepService service): base(service)
         {
             InitializeComponent();
+            Details.AddinName = "Beep IDE";
+            Details.ObjectName = "uc_BeepIDE";
+            Details.ObjectType = "UserControl";
+            Details.ParentName = "Beep IDE";
+      
             this.beepTabControl1.NextButtonClick += BeepTabControl1_NextButtonClick;
             this.beepTabControl1.PrevButtonClick += BeepTabControl1_PrevButtonClick;
             this.beepTabControl1.CloseButtonClick += BeepTabControl1_CloseButtonClick;
@@ -80,14 +86,13 @@ namespace Beep.IDE
         //   public iDEManager iDEManager { get; set; }
         public IDEManager iDEManager { get; set; }
    
-        bool IDM_Addin.DefaultCreate { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-
+     
         IProgress<PassedArgs> progress;
         CancellationToken token;
-        IBranch RootAppBranch;
-        IBranch branch;
-        public IVisManager Visutil { get; set; }
-        FunctionandExtensionsHelpers extensionsHelpers;
+     // //  IBranch RootAppBranch;
+      //  IBranch branch;
+        public IAppManager Visutil { get; set; }
+       // FunctionandExtensionsHelpers extensionsHelpers;
         public void Run(IPassedArgs pPassedarg)
         {
             if (pPassedarg != null)
@@ -115,16 +120,16 @@ namespace Beep.IDE
             DMEEditor = pbl;
             //Python = new PythonHandler(pbl,TextArea,OutputtextBox, griddatasource);
 
-            Visutil = (IVisManager)e.Objects.Where(c => c.Name == "VISUTIL").FirstOrDefault().obj;
+            Visutil = (IAppManager)e.Objects.Where(c => c.Name == "VISUTIL").FirstOrDefault().obj;
 
-            if (e.Objects.Where(c => c.Name == "Branch").Any())
-            {
-                branch = (IBranch)e.Objects.Where(c => c.Name == "Branch").FirstOrDefault().obj;
-            }
-            if (e.Objects.Where(c => c.Name == "RootAppBranch").Any())
-            {
-                RootAppBranch = (IBranch)e.Objects.Where(c => c.Name == "RootAppBranch").FirstOrDefault().obj;
-            }
+            //if (e.Objects.Where(c => c.Name == "Branch").Any())
+            //{
+            //    branch = (IBranch)e.Objects.Where(c => c.Name == "Branch").FirstOrDefault().obj;
+            //}
+            //if (e.Objects.Where(c => c.Name == "RootAppBranch").Any())
+            //{
+            //    RootAppBranch = (IBranch)e.Objects.Where(c => c.Name == "RootAppBranch").FirstOrDefault().obj;
+            //}
             CancellationTokenSource tokenSource = new CancellationTokenSource();
             token = tokenSource.Token;
             progress = new Progress<PassedArgs>(percent =>
@@ -156,7 +161,7 @@ namespace Beep.IDE
                 }
 
             });
-            extensionsHelpers = new FunctionandExtensionsHelpers(DMEEditor, Visutil, (ITree)Visutil.Tree);
+        //    extensionsHelpers = new FunctionandExtensionsHelpers(DMEEditor, Visutil, (ITree)Visutil.Tree);
             iDEManager = new IDEManager(DMEEditor ,e  , this, beepTabControl1,menuStrip1, token, progress);
             this.RuntoolStripButton.Click += RuntoolStripButton_Click;
             this.newFileToolStripMenuItem.Click+= NewFiletoolStripButton_Click;
